@@ -11,9 +11,12 @@ function Navigation() {
             </div>
             
             <div className='Link'>
-                <Link className='link' to = '/'>Topics</Link>
+                <Link className='link' to = '/'>Courses</Link>
+                <Link className='link' to = '/statistics'>FAQ</Link>
                 <Link className='link' to = '/blog'>Blog</Link>
-                <Link className='link' to = '/statistics'>Statistics</Link>
+                <Link className='link' to = '/blog'>L/D</Link>
+                <Link className='link' to = '/blog'>Log In</Link>
+                
             </div>
         </div>
     )
