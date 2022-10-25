@@ -15,7 +15,7 @@ function Navigation() {
                 <Link className='link' to = '/statistics'>FAQ</Link>
                 <Link className='link' to = '/blog'>Blog</Link>
                 <Link className='link' to = '/blog'>L/D</Link>
-                <Link className='link' to = '/blog'>Log In</Link>
+                <Link className='link' to = '/login'>Log In</Link>
                 
             </div>
         </div>

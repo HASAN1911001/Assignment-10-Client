@@ -8,13 +8,23 @@ import Quiz from './components/Quiz'
 import {toast} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
+import {getAuth, GoogleAuthProvider} from 'firebase/auth'
+import app from './Firebase/Firebase.init'
+import LogIn from './components/LogIn'
+
+const auth = getAuth(app)
+
 //toast.configure()
 
 function App() {
+
+  const provider = new GoogleAuthProvider();
+
     const router = createBrowserRouter([
       {path: '/', element: <Home></Home>},
       {path: '/statistics', element: <Statistics></Statistics> },
       {path: '/blog', element: <Blog></Blog>},
+      {path: '/login', element: <LogIn></LogIn>},
       {path: '/quiz/:id',
         loader: async ({params}) =>{
           return fetch(`https://openapi.programming-hero.com/api/quiz/${params.id}`)
@@ -32,7 +42,7 @@ function App() {
   ])
   return (
     <div>
-
+        
         <RouterProvider router={router}></RouterProvider>
     </div>
   );

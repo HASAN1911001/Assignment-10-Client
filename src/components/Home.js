@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Skill from "./Skill";
 import './Home.css';
 import Navigation from "./Navigation";
-import Header from "./Header";
 
 const Home = () => {
     const [skills, setSkills] = useState([]);
@@ -16,11 +15,8 @@ const Home = () => {
     return(
         <div>
             <Navigation></Navigation>
-            <div>
-                 <Header></Header>
-            </div>
   
-            <div className="home">
+            {/* <div className="home">
             {
                 skills.map(skill => 
                     <Skill 
@@ -28,7 +24,7 @@ const Home = () => {
                     skill={skill}></Skill>
                     )
             }
-            </div>
+            </div> */}
             
         </div>
         
