@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Navigation from './Navigation'
+import Navigation from './Navigation/Navigation'
 import { LineChart, Line, CartesianGrid, XAxis, YAxis,ResponsiveContainer } from 'recharts';
 
 

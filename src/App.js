@@ -1,5 +1,5 @@
 import React from 'react'
-import Home from './components/Home'
+import Home from './components/Home/Home'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Statistics from './components/Statistics'
 import Blog from './components/Blog'
@@ -10,7 +10,8 @@ import 'react-toastify/dist/ReactToastify.css'
 
 import {getAuth, GoogleAuthProvider} from 'firebase/auth'
 import app from './Firebase/Firebase.init'
-import LogIn from './components/LogIn'
+import LogIn from './components/LogIn/LogIn'
+import SignIn from './components/SignIn/SignIn'
 
 const auth = getAuth(app)
 
@@ -25,6 +26,7 @@ function App() {
       {path: '/statistics', element: <Statistics></Statistics> },
       {path: '/blog', element: <Blog></Blog>},
       {path: '/login', element: <LogIn></LogIn>},
+      {path: '/singin', element: <SignIn></SignIn>},
       {path: '/quiz/:id',
         loader: async ({params}) =>{
           return fetch(`https://openapi.programming-hero.com/api/quiz/${params.id}`)

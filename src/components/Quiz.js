@@ -1,5 +1,5 @@
 import React from 'react'
-import Navigation from './Navigation'
+import Navigation from './Navigation/Navigation'
 import {useLoaderData} from 'react-router-dom'
 import Questions from './Questions';
 import { keyboard } from '@testing-library/user-event/dist/keyboard';

@@ -3,6 +3,23 @@ import { Link } from 'react-router-dom';
 import './Navigation.css';
 
 function Navigation() {
+    // let D_L = "Light";
+    // const handleClick = (D_L) =>{
+    //         D_L === D_L == "Light"? "Dark": "Light";
+    //         // else D_L = "Dark";
+
+    // }
+
+    function handleClick() {
+        var x = document.getElementById("b");
+        if (x.innerHTML === "Light") {
+            x.innerHTML = "Dark";
+        } else {
+            x.innerHTML = "Light";
+        }
+    }
+    
+
     return (
         <div className='nav'>
             <div id="title">
@@ -14,8 +31,8 @@ function Navigation() {
                 <Link className='link' to = '/'>Courses</Link>
                 <Link className='link' to = '/statistics'>FAQ</Link>
                 <Link className='link' to = '/blog'>Blog</Link>
-                <Link className='link' to = '/blog'>L/D</Link>
                 <Link className='link' to = '/login'>Log In</Link>
+                <button  id = "b" onClick={handleClick}>Light</button>
                 
             </div>
         </div>
