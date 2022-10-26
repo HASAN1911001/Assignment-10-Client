@@ -4,25 +4,21 @@ import {useLoaderData} from 'react-router-dom'
 import Questions from './Questions';
 import { keyboard } from '@testing-library/user-event/dist/keyboard';
 import Skill from './Skill';
+import './Quiz.css'
 
 function Quiz() {
     const data = useLoaderData();
-    let quiz = data.data.questions;
-    console.log(data.data.questions);
+    console.log(data)
   return (
     <div>
         <Navigation></Navigation>
-        <h1 style={{textAlign:'center', margin:'50px'}}>{data.data.name} Quiz</h1>
-        {
-
-            quiz.map(question => 
-                    <Questions 
-                     key={question.id}
-                     question={question}>
-                    </Questions>
-
-                )
-        }
+        <h1 style={{textAlign:'center', margin:'50px'}}>{data.data.name}</h1>
+        <div className='imgdiv'>
+           <img src={data.data.logo}></img>
+        </div>
+        <div className='p'>
+          <h4>{data.data.description}</h4>
+        </div>
     </div>
   )
 }

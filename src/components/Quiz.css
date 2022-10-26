@@ -1,0 +1,20 @@
+/* div img{
+    height: 500px;
+} */
+
+.imgdiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imgdiv img {
+    height: 100%;
+}
+
+.p{
+    margin: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

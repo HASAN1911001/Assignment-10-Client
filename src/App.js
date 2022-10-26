@@ -29,7 +29,7 @@ function App() {
       {path: '/singin', element: <SignIn></SignIn>},
       {path: '/quiz/:id',
         loader: async ({params}) =>{
-          return fetch(`https://openapi.programming-hero.com/api/quiz/${params.id}`)
+          return fetch(`http://localhost:5000/courses/${params.id}`)
         },
 
         // loader: async ({params.skillId}) => {
