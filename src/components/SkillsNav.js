@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import './SkillsNav.css'
 
 
 
@@ -14,9 +15,9 @@ const SkillsNav = () => {
     }, [])
 
     return(
-        <div>
+        <div className='skillsnav'>
             <h4>Courses:</h4>
-            <div>
+            <div >
                 {
                     categories.map(category => <p key = {category.id}>
                         <Link to={`/quiz/${category.id}`}>{category.name}</Link>

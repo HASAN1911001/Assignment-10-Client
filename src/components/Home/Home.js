@@ -20,15 +20,17 @@ const Home = () => {
             <div className="container">
                 
 
-                { <div className="home">
-                {
+                <div className="home">
+                    <div>
+                    {
                     skills.map(skill => 
                         <Skill className="course"
                         key={skill.id}
                         skill={skill}></Skill>
                         )
-                }
-                </div> }
+                     }
+                    </div>
+                </div>
 
                 <SkillsNav className="skillsnav">
 
