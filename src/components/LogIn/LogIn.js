@@ -1,6 +1,6 @@
 import { getAuth, GithubAuthProvider, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useLocation } from 'react-router-dom';
 import app from '../../Firebase/Firebase.init';
 import { AuthContext } from '../Context/UserContext';
 import Navigation from '../Navigation/Navigation';
@@ -15,6 +15,10 @@ const LogIn = () => {
     const [user, setUser] = useState({});
 
     const googleProvider = new GoogleAuthProvider();
+
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/'
 
     const handleGoogleSignIn = () =>{
         signInWithGoogle()
@@ -65,7 +69,7 @@ const LogIn = () => {
 
      }
     //  console.log(user);
-    
+   
    
     return(
         <div>

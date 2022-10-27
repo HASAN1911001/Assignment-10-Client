@@ -1,6 +1,6 @@
 import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, signInWithPopup, updateProfile } from 'firebase/auth';
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import app from '../Firebase/Firebase.init';
 import { AuthContext } from './Context/UserContext';
 import Navigation from './Navigation/Navigation';
@@ -68,6 +68,10 @@ const Signup = () => {
                 console.error('error', error);
               });
 }
+
+       
+
+        
    
     return(
         <div>
