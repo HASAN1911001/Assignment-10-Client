@@ -8,7 +8,7 @@ const Home = () => {
     const [skills, setSkills] = useState([]);
 
     useEffect( () => {
-        fetch('http://localhost:5000/course-categories')
+        fetch('https://b610-lerning-platform-server-side-hasan-1911001.vercel.app/course-categories')
         .then(res=> res.json())
         .then(data=> setSkills(data.data));
     }, [])

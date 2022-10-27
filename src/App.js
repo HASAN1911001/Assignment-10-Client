@@ -32,7 +32,7 @@ function App() {
       {path: '/signin', element: <SignIn></SignIn>},
       {path: '/quiz/:id',
         loader: async ({params}) =>{
-          return fetch(`http://localhost:5000/courses/${params.id}`)
+          return fetch(`https://b610-lerning-platform-server-side-hasan-1911001.vercel.app/courses/${params.id}`)
         },
 
         // loader: async ({params.skillId}) => {
