@@ -18,3 +18,11 @@
     align-items: center;
     justify-content: center;
 }
+
+.checkout{
+  margin-bottom: 20px;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+
+}

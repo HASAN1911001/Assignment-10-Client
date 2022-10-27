@@ -4,7 +4,6 @@ import { AuthContext } from '../Context/UserContext';
 
 const PrivateRoute = ({children}) => {
    const {user} = useContext(AuthContext);
-   console.log(children);
 
    if (user && user.uid){
     return children;

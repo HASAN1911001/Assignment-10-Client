@@ -6,53 +6,50 @@ function Blog() {
     <div>
         <Navigation></Navigation>
         <div style={{margin:'100px'}}>
-            <h1>1. What is the purpose of react router?</h1>
+            <h1>1. what is cors?</h1>
             <p>
-                React router is the official and standard routing package that we use in React.js to change views, and move between pages.
+            Cross-origin resource sharing is a mechanism that allows restricted resources on a web page to be requested from another domain outside the domain from which the first resource was served. A web page may freely embed cross-origin images, stylesheets, scripts, iframes, and videos.
             </p>
-            <p> 
-                Router is a tool that allows developer to handle routes in a web app, using dynamic routing.
-                Dynamic routing takes place as the app is rendering on the machine, unlike
-                the old routing architecture where the routing is handled in a configuration 
-                outside of a running app. React router implements a component-based approach
-                to routing. It provides different routing components according to the needs 
-                of the application and platform.
-            </p>
-            <h1>2. How does context api work?</h1>
+            <h1>2. Why are you using firebase? What other options do you have to implement authentication?</h1>
             <p>
-                The Context API came to solve a few different problems that we were having in React
-                applications—one of the most important is prop-drilling
+            Most apps need to know the identity of a user. Knowing a user's identity allows an app to securely save user data in the cloud and provide the same personalized experience across all of the user's devices.
+Firebase Authentication provides backend services, easy-to-use SDKs, and ready-made UI libraries to authenticate users to your app. It supports authentication using passwords, phone numbers, popular federated identity providers like Google, Facebook and Twitter, and more.
+
+Firebase Authentication integrates tightly with other Firebase services, and it leverages industry standards like OAuth 2.0 and OpenID Connect, so it can be easily integrated with your custom backend.
             </p>
+
             <p>
-                After breaking components into smaller components for maintainability purposes, 
-                these small components might now need some data to work properly. If these small
-                components need data to work with, you will have to pass data through props from
-                the parent component to the child component. This is where we can slow down our
-                application and cause development issues.
+                Options:
             </p>
+                
             <p>
-                The Context API can be used to share data with multiple components, without having 
-                to pass data through props manually.
+            Email Password
             </p>
-            <h1>3. What is the purpose of useRef Hook?</h1>
+
             <p>
-                A hook is a special function which enables one use state and other React features without
-                writing ES6 class components which are generally considered difficult to understand, use and master.
+                Google
             </p>
+                GitHub
             <p>
-            useRef is one of the standard hooks provided by React. It will return an object that we can use during the whole lifecycle of the component. 
-            The main use case for the useRef hook is to access a DOM child directly. I'll show exactly how to do that in another section. 
-            Although accessing the DOM is the main use case, it doesn't mean it's the only one! useRef can also be very useful to hold a mutable value across different renders of your component. 
+                And Many more
             </p>
+
+
+              
+            <h1>3. How does the private route work?</h1>
             <p>
-            There are only three possibilities when we can useRef in our component -
+            The private route component is similar to the public route, the only change is that redirect URL and authenticate condition. If the user is not authenticated he will be redirected to the login page and the user can only access the authenticated routes If he is authenticated (Logged in).
             </p>
-            <p>--Managing focus, text selection, or media playback. </p>
-            <p>--Integrating with third-party DOM libraries. </p>
-            <p>--Triggering imperative animations. </p>
+
+            <h1>4. What is Node? How does Node work?</h1>
+            <p>
+            Node allows developers to write JavaScript code that runs directly in a computer process itself instead of in a browser. Node can, therefore, be used to write server-side applications with access to the operating system, file system, and everything else required to build fully-functional applications.
+            </p>
         </div>
     </div>
   )
 }
 
 export default Blog
+
+

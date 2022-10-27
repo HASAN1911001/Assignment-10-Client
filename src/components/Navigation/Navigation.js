@@ -5,12 +5,12 @@ import './Navigation.css';
 
 function Navigation(props) {
 
-    const abc = useContext(AuthContext);
-    console.log(abc)
+    const {user} = useContext(AuthContext);
+    //console.log('Navigation:', user.displayName)
 
     // console.log(props.user);
-    // const name = props.user.displayName;
-    // const image = props.user.photoURL;
+    const name = user.displayName;
+    const image = user.photoURL;
 
     function handleClick() {
         var x = document.getElementById("b");
@@ -31,16 +31,16 @@ function Navigation(props) {
             
             <div className='Link'>
                 <Link className='link' to = '/'>Courses</Link>
-                <Link className='link' to = '/statistics'>FAQ</Link>
+                <Link className='link' to = '/faq'>FAQ</Link>
                 <Link className='link' to = '/blog'>Blog</Link>
                 <button  id = "b" className='link' onClick={handleClick}>Light</button>
-                <Link className='link' to = '/login'>Log In</Link>
-                {/* { image ? <div className="click-to-top">
+                {/* <Link className='link' to = '/login'>Log In</Link> */}
+                { image ? <div className="click-to-top">
                             <img src={image} alt="Image 1" />
                             <span>{name}</span>
                         </div>:
                     <Link className='link' to = '/login'>Log In</Link>
-                 } */}
+                 }
                
                 
             </div>

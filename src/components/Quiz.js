@@ -1,9 +1,7 @@
 import React from 'react'
 import Navigation from './Navigation/Navigation'
 import {Link, useLoaderData} from 'react-router-dom'
-import Questions from './Questions';
-import { keyboard } from '@testing-library/user-event/dist/keyboard';
-import Skill from './Skill';
+
 import './Quiz.css'
 
 function Quiz() {
@@ -20,10 +18,17 @@ function Quiz() {
           <h4>{data.data.description}</h4>
         </div>
         <div>
-            <Link to="/checkout">Check Out</Link>
+            <Link className='checkout' to="/checkout">Get premium access</Link>
         </div>
     </div>
   )
 }
 
 export default Quiz
+
+
+
+// This is the course details page. To reduce some word I was coppied my assignment 9.
+// I was facing difficulties while changing the name from to Quiz to Course.
+// I have used the Quiz component of assignment 9 as Course Detalils. 
+// Please Consider!

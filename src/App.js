@@ -1,7 +1,7 @@
 import React from 'react'
 import Home from './components/Home/Home'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Statistics from './components/Statistics'
+import Faq from './components/Stat'
 import Blog from './components/Blog'
 import Quiz from './components/Quiz'
 
@@ -11,9 +11,12 @@ import 'react-toastify/dist/ReactToastify.css'
 import {getAuth, GoogleAuthProvider} from 'firebase/auth'
 import app from './Firebase/Firebase.init'
 import LogIn from './components/LogIn/LogIn'
-import SignIn from './components/SignIn/SignIn'
-import CheckOut from './components/route/PrivateRoute'
+import Signup from './components/Signup'
+
 import PrivateRoute from './components/route/PrivateRoute'
+import Checkout from './components/Checkout'
+// import Signup from './components/Signup/Signup'
+// import Faq from './components/Faq'
 
 const auth = getAuth(app)
 
@@ -25,11 +28,11 @@ function App() {
 
     const router = createBrowserRouter([
       {path: '/', element: <Home></Home>},
-      {path: '/statistics', element: <Statistics></Statistics> },
       {path: '/blog', element: <Blog></Blog>},
+      {path: '/faq', element: <Faq></Faq>},
       {path: '/login', element: <LogIn></LogIn>},
-      {path: '/checkout', element: <PrivateRoute>  <CheckOut></CheckOut> </PrivateRoute> },
-      {path: '/signin', element: <SignIn></SignIn>},
+      {path: '/checkout', element: <PrivateRoute> <Checkout></Checkout> </PrivateRoute>},
+      {path: '/signup', element: <Signup></Signup>},
       {path: '/quiz/:id',
         loader: async ({params}) =>{
           return fetch(`https://b610-lerning-platform-server-side-hasan-1911001.vercel.app/courses/${params.id}`)

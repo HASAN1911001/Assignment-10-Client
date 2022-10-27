@@ -1,9 +1,9 @@
 import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, signInWithPopup, updateProfile } from 'firebase/auth';
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import app from '../../Firebase/Firebase.init';
-import { AuthContext } from '../Context/UserContext';
-import Navigation from '../Navigation/Navigation';
+import app from '../Firebase/Firebase.init';
+import { AuthContext } from './Context/UserContext';
+import Navigation from './Navigation/Navigation';
 
 const auth = getAuth(app);
 
@@ -38,11 +38,11 @@ const auth = getAuth(app);
 //       });
 // }
 
-const SignIn = () => {
+const Signup = () => {
     const {createUser} = useContext(AuthContext);
     console.log('createUser: ', createUser)
 
-    const handleSignIn = (event) =>{
+    const handleSignup = (event) =>{
         event.preventDefault();
         const name = event.target.name.value;
         const email = event.target.email.value;
@@ -75,7 +75,7 @@ const SignIn = () => {
             <div className='LogIn'>
                 <div className='in'>
 
-                    <form onSubmit={handleSignIn}>
+                    <form onSubmit={handleSignup}>
                         <input type="text" name = "name" placeholder="Full Name" className='input'></input>
                         <input type="email" name = "email" placeholder="Email" className='input'></input>
                         <input type="url" name = "url" placeholder="Image URL"className='input'></input>
@@ -91,4 +91,4 @@ const SignIn = () => {
      );
 };
 
-export default SignIn;
+export default Signup;
