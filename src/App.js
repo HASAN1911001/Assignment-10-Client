@@ -26,7 +26,7 @@ function App() {
       {path: '/statistics', element: <Statistics></Statistics> },
       {path: '/blog', element: <Blog></Blog>},
       {path: '/login', element: <LogIn></LogIn>},
-      {path: '/singin', element: <SignIn></SignIn>},
+      {path: '/signin', element: <SignIn></SignIn>},
       {path: '/quiz/:id',
         loader: async ({params}) =>{
           return fetch(`http://localhost:5000/courses/${params.id}`)

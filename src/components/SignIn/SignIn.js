@@ -1,28 +1,45 @@
-import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import app from '../../Firebase/Firebase.init';
+import Navigation from '../Navigation/Navigation';
 
 const auth = getAuth(app);
 
+const handleSignIn = (event) =>{
+    event.preventDefault();
+    const name = event.target.name.value;
+    const email = event.target.email.value;
+    const url = event.target.url.value;
+    const password = event.target.password.value;
+    createUserWithEmailAndPassword(auth, email, password)
+    .then(result => {
+        const user = result.user;
+        console.log(user);
+    }) 
+}
+
 const SignIn = () => {
-    const googleProvider = new GoogleAuthProvider();
-
-    const handleGoogleSignIn = () =>{
-        signInWithPopup(auth, googleProvider)
-        .then(result => {
-            const user = result.user;
-        })
-        .catch(error => {
-            console.log('error :', error)
-        })
-
-    }
-    
    
     return(
         <div>
-            <button onClick={handleGoogleSignIn}>Google Sign In</button>
-        </div>  
+            <Navigation></Navigation>
+            <div className='LogIn'>
+                <div className='in'>
+
+                    <form onSubmit={handleSignIn}>
+                        <input type="text" name = "name" placeholder="Full Name" className='input'></input>
+                        <input type="email" name = "email" placeholder="Email" className='input'></input>
+                        <input type="url" name = "url" placeholder="Image URL"className='input'></input>
+                        <input type="password" name = "password" placeholder='Password' className='input'></input>
+                        <button type="submit">Submit</button>
+                    </form>
+                    <br/>
+                    <Link to="/login">Log In</Link>
+
+                </div>
+            </div>  
+        </div> 
      );
 };
 
