@@ -7,10 +7,14 @@ function Navigation(props) {
 
     const {user} = useContext(AuthContext);
     //console.log('Navigation:', user.displayName)
-
+    let image = 0;
+    let name = 0
     // console.log(props.user);
-    const name = user.displayName;
-    const image = user.photoURL;
+    if(user){
+        name = user.displayName;
+        image = user.photoURL;
+    }
+    
 
     function handleClick() {
         var x = document.getElementById("b");
