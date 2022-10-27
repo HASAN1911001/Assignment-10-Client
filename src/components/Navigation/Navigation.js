@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../Context/UserContext';
 import './Navigation.css';
 
 function Navigation(props) {
 
-    console.log(props.user);
-    const name = props.user.displayName;
-    const image = props.user.photoURL;
+    const abc = useContext(AuthContext);
+    console.log(abc)
+
+    // console.log(props.user);
+    // const name = props.user.displayName;
+    // const image = props.user.photoURL;
 
     function handleClick() {
         var x = document.getElementById("b");
@@ -30,12 +34,13 @@ function Navigation(props) {
                 <Link className='link' to = '/statistics'>FAQ</Link>
                 <Link className='link' to = '/blog'>Blog</Link>
                 <button  id = "b" className='link' onClick={handleClick}>Light</button>
-                { image ? <div class="click-to-top">
+                <Link className='link' to = '/login'>Log In</Link>
+                {/* { image ? <div className="click-to-top">
                             <img src={image} alt="Image 1" />
                             <span>{name}</span>
                         </div>:
                     <Link className='link' to = '/login'>Log In</Link>
-                 }
+                 } */}
                
                 
             </div>

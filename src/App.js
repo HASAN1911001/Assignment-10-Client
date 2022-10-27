@@ -12,6 +12,8 @@ import {getAuth, GoogleAuthProvider} from 'firebase/auth'
 import app from './Firebase/Firebase.init'
 import LogIn from './components/LogIn/LogIn'
 import SignIn from './components/SignIn/SignIn'
+import CheckOut from './components/route/PrivateRoute'
+import PrivateRoute from './components/route/PrivateRoute'
 
 const auth = getAuth(app)
 
@@ -26,6 +28,7 @@ function App() {
       {path: '/statistics', element: <Statistics></Statistics> },
       {path: '/blog', element: <Blog></Blog>},
       {path: '/login', element: <LogIn></LogIn>},
+      {path: '/checkout', element: <PrivateRoute>  <CheckOut></CheckOut> </PrivateRoute> },
       {path: '/signin', element: <SignIn></SignIn>},
       {path: '/quiz/:id',
         loader: async ({params}) =>{

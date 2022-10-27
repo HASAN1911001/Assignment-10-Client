@@ -1,7 +1,8 @@
 import { getAuth, GithubAuthProvider, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import app from '../../Firebase/Firebase.init';
+import { AuthContext } from '../Context/UserContext';
 import Navigation from '../Navigation/Navigation';
 import './LogIn.css'
 
@@ -9,12 +10,14 @@ const auth = getAuth(app);
 
 const LogIn = () => {
 
+    const {signInPassword, signInWithGoogle, signInWithGitHub} = useContext(AuthContext);
+
     const [user, setUser] = useState({});
 
     const googleProvider = new GoogleAuthProvider();
 
     const handleGoogleSignIn = () =>{
-        signInWithPopup(auth, googleProvider)
+        signInWithGoogle()
         .then(result => {
             const user = result.user;
             setUser(user);
@@ -28,11 +31,11 @@ const LogIn = () => {
     const GitHubProvider = new GithubAuthProvider()
 
     const handleGitHubSignIn = () =>{
-        signInWithPopup(auth, GitHubProvider)
+        signInWithGitHub()
         .then(result => {
             const user = result.user;
             setUser(user);
-            // console.log(user);
+            console.log(user);
         })
         .catch(error => {
             console.error('error :', error)
@@ -46,12 +49,12 @@ const LogIn = () => {
         setSuccess(true);
         const email = event.target.email.value;
         const password = event.target.password.value;
-        signInWithEmailAndPassword(auth, email, password)
+        signInPassword(email, password)
         .then(result => {
             const user = result.user;
             setUser(user);
             
-            // console.log(user);
+             console.log(user);
         }) 
         
         .catch(error =>{

@@ -1,6 +1,6 @@
 import React from 'react'
 import Navigation from './Navigation/Navigation'
-import {useLoaderData} from 'react-router-dom'
+import {Link, useLoaderData} from 'react-router-dom'
 import Questions from './Questions';
 import { keyboard } from '@testing-library/user-event/dist/keyboard';
 import Skill from './Skill';
@@ -18,6 +18,9 @@ function Quiz() {
         </div>
         <div className='p'>
           <h4>{data.data.description}</h4>
+        </div>
+        <div>
+            <Link to="/checkout">Check Out</Link>
         </div>
     </div>
   )

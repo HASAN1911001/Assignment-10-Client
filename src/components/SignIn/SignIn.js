@@ -1,19 +1,55 @@
 import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, signInWithPopup, updateProfile } from 'firebase/auth';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import app from '../../Firebase/Firebase.init';
+import { AuthContext } from '../Context/UserContext';
 import Navigation from '../Navigation/Navigation';
 
 const auth = getAuth(app);
 
-const handleSignIn = (event) =>{
-    event.preventDefault();
-    const name = event.target.name.value;
-    const email = event.target.email.value;
-    const url = event.target.url.value;
-    const password = event.target.password.value;
 
-    createUserWithEmailAndPassword(auth, email, password)
+
+
+// const handleSignIn = (event) =>{
+//     event.preventDefault();
+//     const name = event.target.name.value;
+//     const email = event.target.email.value;
+//     const url = event.target.url.value;
+//     const password = event.target.password.value;
+
+//     createUserWithEmailAndPassword(auth, email, password)
+//     .then(result => {
+//         const user = result.user;
+//         console.log(user);
+//     }) 
+//     .catch(error =>{
+//         console.error('error', error);
+//     })
+
+    
+//     updateProfile(auth.currentUser, {
+//         displayName: name, photoURL: url
+//       }).then((result) => {
+//         const user = result.user;
+//         console.log(user);
+
+//       }).catch((error) => {
+//         console.error('error', error);
+//       });
+// }
+
+const SignIn = () => {
+    const {createUser} = useContext(AuthContext);
+    console.log('createUser: ', createUser)
+
+    const handleSignIn = (event) =>{
+        event.preventDefault();
+        const name = event.target.name.value;
+        const email = event.target.email.value;
+        const url = event.target.url.value;
+        const password = event.target.password.value;
+
+    createUser(email, password)
     .then(result => {
         const user = result.user;
         console.log(user);
@@ -22,19 +58,16 @@ const handleSignIn = (event) =>{
         console.error('error', error);
     })
 
-    
     updateProfile(auth.currentUser, {
-        displayName: name, photoURL: url
-      }).then((result) => {
-        const user = result.user;
-        console.log(user);
-
-      }).catch((error) => {
-        console.error('error', error);
-      });
+                displayName: name, photoURL: url
+              }).then((result) => {
+                const user = result.user;
+                console.log(user);
+        
+              }).catch((error) => {
+                console.error('error', error);
+              });
 }
-
-const SignIn = () => {
    
     return(
         <div>
