@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, signInWithPopup, updateProfile } from 'firebase/auth';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import app from '../../Firebase/Firebase.init';
@@ -12,11 +12,26 @@ const handleSignIn = (event) =>{
     const email = event.target.email.value;
     const url = event.target.url.value;
     const password = event.target.password.value;
+
     createUserWithEmailAndPassword(auth, email, password)
     .then(result => {
         const user = result.user;
         console.log(user);
     }) 
+    .catch(error =>{
+        console.error('error', error);
+    })
+
+    
+    updateProfile(auth.currentUser, {
+        displayName: name, photoURL: url
+      }).then((result) => {
+        const user = result.user;
+        console.log(user);
+
+      }).catch((error) => {
+        console.error('error', error);
+      });
 }
 
 const SignIn = () => {
