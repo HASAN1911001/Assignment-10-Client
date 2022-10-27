@@ -32,4 +32,35 @@ img{
         grid-template-columns: repeat(1, 1fr);
     }
 }
+
+.userimg{
+    border-radius: 50%;
+    height: 20px;
+    margin-right: 20px;
+}
+.tooltip{
+    visibility: visible;
+}
+
+.userimg:hover .tooltip{
+    visibility: visible;
+}
   
+
+.imgcontainer{
+    display:flex;
+}
+
+
+div.click-to-top span {
+    display: none;
+    position: absolute;
+    top: 1;
+    
+    right: 10;
+    color: #000000;
+  }
+  
+  div.click-to-top:hover span {
+    display: block;
+  }

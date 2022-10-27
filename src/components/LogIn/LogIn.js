@@ -8,13 +8,16 @@ import './LogIn.css'
 const auth = getAuth(app);
 
 const LogIn = () => {
+
+    const [user, setUser] = useState({});
+
     const googleProvider = new GoogleAuthProvider();
 
     const handleGoogleSignIn = () =>{
         signInWithPopup(auth, googleProvider)
         .then(result => {
             const user = result.user;
-            console.log(user);
+            setUser(user);
         })
         .catch(error => {
             console.error('error :', error)
@@ -28,7 +31,8 @@ const LogIn = () => {
         signInWithPopup(auth, GitHubProvider)
         .then(result => {
             const user = result.user;
-            console.log(user);
+            setUser(user);
+            // console.log(user);
         })
         .catch(error => {
             console.error('error :', error)
@@ -45,8 +49,9 @@ const LogIn = () => {
         signInWithEmailAndPassword(auth, email, password)
         .then(result => {
             const user = result.user;
+            setUser(user);
             
-            console.log(user);
+            // console.log(user);
         }) 
         
         .catch(error =>{
@@ -54,14 +59,15 @@ const LogIn = () => {
             console.error('error', error)
         })
 
-        
-     }
 
+     }
+    //  console.log(user);
     
    
     return(
         <div>
-            <Navigation></Navigation>
+            <Navigation
+            user={user}></Navigation>
             <div className='LogIn'>
                 <div className='in'>
 
